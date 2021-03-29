@@ -21,4 +21,16 @@ class CompanyRepository implements ICompanyRepository {
         })
         await this.repository.save(user)
     }
+
+    async findByEmail(email: string): Promise<Company> {
+        const company = await this.repository.findOne({email})
+        return company
+    }
+
+    async findById(id: string): Promise<Company> {
+        const company = await this.repository.findOne(id)
+        return company
+    }
 }
+
+export { CompanyRepository }
