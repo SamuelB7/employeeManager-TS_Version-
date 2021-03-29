@@ -1,0 +1,15 @@
+{ 
+    "type": "postgres",
+    "port": "1234",
+    "host": "localhost",
+    "username": "postgres",
+    "password": "1234",
+    "database": "EmployeeManagerDB",
+    "migrations": ["./src/database/migrations/*.ts"],
+    "cli": {
+        "migrationsDir": "./src/database/migartions"
+    },
+    "entities": [
+        "./src/modules/**/entities/*.ts"
+    ]
+}
