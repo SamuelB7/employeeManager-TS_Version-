@@ -1,5 +1,6 @@
-import { Column, CreateDateColumn, Entity, PrimaryColumn } from 'typeorm'
+import { Column, CreateDateColumn, Entity, OneToMany, PrimaryColumn } from 'typeorm'
 import { v4 as uuidV4 } from 'uuid'
+import { Employee } from '../../employees/entities/Employee'
 
 @Entity('company')
 class Company {
@@ -21,6 +22,9 @@ class Company {
 
     @CreateDateColumn()
     created_at: Date
+
+    /* @OneToMany(() => Employee, employee => employee.id)
+    employees: Employee[] */
 
     constructor() {
         if(!this.id) {
