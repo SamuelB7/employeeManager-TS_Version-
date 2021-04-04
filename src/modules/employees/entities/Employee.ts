@@ -1,5 +1,6 @@
-import { Column, CreateDateColumn, Entity, PrimaryColumn } from 'typeorm';
+import { Column, CreateDateColumn, Entity, ManyToOne, PrimaryColumn } from 'typeorm';
 import { v4 as uuidV4 } from 'uuid'
+import { Company } from '../../accounts/entities/Company';
 
 @Entity("employee")
 class Employee {
@@ -21,14 +22,26 @@ class Employee {
     @Column()
     email: string
 
-    @Column()
+    @CreateDateColumn()
     birth: Date
+
+    @Column()
+    photo: string
 
     @Column()
     company_id: string
 
     @CreateDateColumn()
     created_at: Date
+
+    /* @ManyToOne(() => Company, company => company.id)
+    company: Company */
+
+    constructor() {
+        if(!this.id) {
+            this.id = uuidV4()
+        }
+    }
 }
 
 export { Employee }

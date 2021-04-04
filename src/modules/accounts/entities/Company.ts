@@ -23,7 +23,7 @@ class Company {
     @CreateDateColumn()
     created_at: Date
 
-    /* @OneToMany(() => Employee, employee => employee.id)
+    /* @OneToMany(() => Employee, employee => employee.company_id)
     employees: Employee[] */
 
     constructor() {
