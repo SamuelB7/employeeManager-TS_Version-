@@ -7,7 +7,9 @@ import { CreateEmployeeUseCase } from "./CreateEmployeeUseCase";
 class CreateEmployeeController {
     async handle(request: Request, response: Response): Promise<Response> {
         try {
-            const {name, rg, cpf, phone, email, birth, photo} = request.body
+            const {name, rg, cpf, phone, email, birth} = request.body
+            
+            const photo = request.file.filename
 
             const company_id = request.company.id
 
